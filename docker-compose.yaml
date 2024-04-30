@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  raspiheim:
+    image: arokan/raspiheim:latest
+    container_name: raspiheim
+    environment:
+      - SERVER_NAME=PPWarriors2
+      - WORLD_NAME=PPWarriors2
+      - SERVER_PASS=12345
+      - PUBLIC=0
+      - CROSSPLAY=enabled
+      - UPDATE=enabled
+      - PAUSE=disabled
+    ports:
+      - "2456:2456/udp"
+      - "2457:2457/udp"
+    volumes:
+      - "/home/dramikei/valheim-server/data:/data"
+      - "/home/dramikei/valheim-server/server:/valheim"
+    restart: unless-stopped
